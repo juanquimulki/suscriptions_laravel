@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ISuscriptionService;
+use App\DTOs\SuscriptionDTO;
+use App\Enums\Status;
 
 class SuscriptionController extends Controller
 {
@@ -20,7 +22,14 @@ class SuscriptionController extends Controller
     }
 
     public function createSuscription(Request $request) {
-        $suscription = $this->suscriptionService->createSuscription($request->user_id, $request->service_id, $request->status, $request->date);
+        $sDTO = new SuscriptionDTO(
+            $request->user_id,
+            $request->service_id,
+            Status::$ACTIVE,
+            $request->date
+        );
+
+        $suscription = $this->suscriptionService->createSuscription($sDTO);
         return response()->json($suscription);
     }
 }

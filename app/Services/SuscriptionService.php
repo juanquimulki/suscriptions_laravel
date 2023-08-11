@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTOs\SuscriptionDTO;
 use Illuminate\Database\Eloquent\Collection;
 use App\Repositories\SuscriptionRepository;
 
@@ -19,8 +20,8 @@ class SuscriptionService implements ISuscriptionService
     return $this->suscriptionRepository->findAllWithRelations();
   }
 
-    public function createSuscription(int $userId, int $serviceId, string $status, string $date)
+    public function createSuscription(SuscriptionDTO $sDTO)
     {
-        return $this->suscriptionRepository->createSuscription($userId, $serviceId, $status, $date);
+        return $this->suscriptionRepository->createSuscription($sDTO);
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\DTOs\SuscriptionDTO;
+
 interface ISuscriptionService
 {
   public function findAllWithRelations();
-  public function createSuscription(int $userId, int $serviceId, string $status, string $date);
+  public function createSuscription(SuscriptionDTO $sDTO);
 }

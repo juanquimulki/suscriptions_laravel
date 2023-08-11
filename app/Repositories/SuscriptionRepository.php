@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
+use App\DTOs\SuscriptionDTO;
+use App\Enums\Status;
 use App\Models\Suscription;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Date;
 
 class SuscriptionRepository
 {
@@ -13,14 +14,14 @@ class SuscriptionRepository
     return Suscription::with('user')->with('service')->get();
   }
 
-  public function createSuscription(int $userId, int $serviceId, string $status, string $date) : Suscription
+  public function createSuscription(SuscriptionDTO $sDTO) : Suscription
   {
       $suscription = new Suscription();
 
-      $suscription->user_id = $userId;
-      $suscription->service_id = $serviceId;
-      $suscription->status = $status;
-      $suscription->date = date('Y-m-d', strtotime($date));;
+      $suscription->user_id = $sDTO->userId;
+      $suscription->service_id = $sDTO->serviceId;
+      $suscription->status = $sDTO->status;
+      $suscription->date = date('Y-m-d', strtotime($sDTO->date));;
 
       $suscription->save();
       return $suscription;
