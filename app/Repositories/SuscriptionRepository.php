@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\DTOs\SuscriptionDTO;
-use App\Enums\Status;
 use App\Models\Suscription;
 use Illuminate\Database\Eloquent\Collection;
 
