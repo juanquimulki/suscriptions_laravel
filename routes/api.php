@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SuscriptionController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', [UserController::class, 'show']);
+Route::get('/suscriptions', [SuscriptionController::class, 'getSuscriptions']);
+
