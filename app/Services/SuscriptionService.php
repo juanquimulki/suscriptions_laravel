@@ -8,20 +8,25 @@ use App\Repositories\SuscriptionRepository;
 
 class SuscriptionService implements ISuscriptionService
 {
-  private SuscriptionRepository $suscriptionRepository;
+    private SuscriptionRepository $suscriptionRepository;
 
-  public function __construct(SuscriptionRepository $suscriptionRepository)
-  {
-    $this->suscriptionRepository = $suscriptionRepository;
-  }
+    public function __construct(SuscriptionRepository $suscriptionRepository)
+    {
+        $this->suscriptionRepository = $suscriptionRepository;
+    }
 
-  public function findAllWithRelations() : Collection
-  {
-    return $this->suscriptionRepository->findAllWithRelations();
-  }
+    public function findAllWithRelations() : Collection
+    {
+        return $this->suscriptionRepository->findAllWithRelations();
+    }
 
     public function createSuscription(SuscriptionDTO $sDTO)
     {
         return $this->suscriptionRepository->createSuscription($sDTO);
+    }
+
+    public function cancelSuscription(SuscriptionDTO $sDTO)
+    {
+        return $this->suscriptionRepository->updateSuscription($sDTO);
     }
 }

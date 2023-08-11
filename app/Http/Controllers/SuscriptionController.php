@@ -32,4 +32,16 @@ class SuscriptionController extends Controller
         $suscription = $this->suscriptionService->createSuscription($sDTO);
         return response()->json($suscription);
     }
+
+    public function cancelSuscription(Request $request) {
+        $sDTO = new SuscriptionDTO(
+            $request->user_id,
+            $request->service_id,
+            Status::$CANCELLED,
+            $request->date
+        );
+
+        $suscription = $this->suscriptionService->cancelSuscription($sDTO);
+        return response()->json($suscription);
+    }
 }
