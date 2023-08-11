@@ -18,4 +18,9 @@ class SuscriptionService implements ISuscriptionService
   {
     return $this->suscriptionRepository->findAllWithRelations();
   }
+
+    public function createSuscription(int $userId, int $serviceId, string $status, string $date)
+    {
+        return $this->suscriptionRepository->createSuscription($userId, $serviceId, $status, $date);
+    }
 }

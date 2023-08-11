@@ -17,4 +17,6 @@ use App\Http\Controllers\SuscriptionController;
 */
 
 Route::get('/suscriptions', [SuscriptionController::class, 'getSuscriptions']);
+Route::post('/suscriptions', [SuscriptionController::class, 'createSuscription']);
+Route::patch('/suscriptions', [SuscriptionController::class, 'cancelSuscription']);
 
