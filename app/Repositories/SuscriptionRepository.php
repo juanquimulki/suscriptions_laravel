@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Collection;
 
 class SuscriptionRepository
 {
+    public function getAllByDate(string $date) : Collection
+    {
+        return Suscription::where('date', date('Y-m-d', strtotime($date)))->get();
+    }
+
     public function getAllWithRelations() : Collection
     {
         return Suscription::with('user')->with('service')->get();
