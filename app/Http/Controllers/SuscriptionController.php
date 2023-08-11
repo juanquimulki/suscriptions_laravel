@@ -17,7 +17,7 @@ class SuscriptionController extends Controller
     }
 
     public function getSuscriptions() {
-        $suscriptions =  $this->suscriptionService->findAllWithRelations();
+        $suscriptions =  $this->suscriptionService->getAllWithRelations();
         return response()->json($suscriptions);
     }
 

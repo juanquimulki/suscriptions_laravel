@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class SuscriptionRepository
 {
-    public function findAllWithRelations() : Collection
+    public function getAllWithRelations() : Collection
     {
         return Suscription::with('user')->with('service')->get();
     }
